@@ -1,0 +1,10 @@
+{
+    "restaurant_id": "restaurant.R.res_id",
+    "restaurant_name": "restaurant.name",
+    "country": "restaurant.location.country_id",
+    "city": "restaurant.location.city",
+    "user_rating_votes": "restaurant.user_rating.votes",
+    "user_aggregate_rating": "restaurant.user_rating.aggregate_rating",
+    "cuisines": "restaurant.cuisines"
+}
+
