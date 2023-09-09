@@ -1,22 +1,13 @@
 """
 This module extracts selected fields and store the data as restaurants.csv.
 """
-import json
-import urllib.request
 import pandas as pd
 import numpy as np
+import main
 
-URL = (
-    "https://raw.githubusercontent.com/"
-    "Papagoat/brain-assessment/main/restaurant_data.json"
-)
-with urllib.request.urlopen(URL) as response:
-    data = json.load(response)
+data, metadata = main.main()
 
 country_codes_df = pd.read_excel('Country-Code.xlsx')
-
-with open('restaurant.json', 'r', encoding='utf-8') as f:
-    metadata = json.load(f)
 
 df = pd.json_normalize(data, 'restaurants')
 selected_cols = [metadata['restaurant_id'], metadata['restaurant_name'],
