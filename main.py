@@ -4,6 +4,7 @@ This module extracts selected fields and store the data as restaurants.csv.
 import json
 import urllib.request
 import pandas as pd
+import numpy as np
 
 URL = (
     "https://raw.githubusercontent.com/"
@@ -30,6 +31,8 @@ df = df.drop(columns={
     metadata['country'],
     'Country Code'
 })
+df = df.replace(r'^\s*$', np.nan, regex=True)
+df = df.fillna('NA')
 
 df = df.rename(columns={
     metadata['restaurant_id']: 'Restaurant Id',
@@ -52,4 +55,4 @@ column_order = [
 
 df = df.reindex(columns=column_order)
 
-print(df)
+df.to_csv('restaurants.csv', index=False, encoding='utf-8-sig')
