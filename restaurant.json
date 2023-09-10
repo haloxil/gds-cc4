@@ -1,7 +1,7 @@
 {
     "restaurant_id": "restaurant.R.res_id",
     "restaurant_name": "restaurant.name",
-    "country": "restaurant.location.country_id",
+    "country_id": "restaurant.location.country_id",
     "city": "restaurant.location.city",
     "photo_url": "restaurant.photos_url",
     "user_rating_votes": "restaurant.user_rating.votes",
