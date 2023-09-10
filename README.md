@@ -25,3 +25,5 @@ For this assignment, I have implemented IaC tools such as Terraform to provision
 To migrate this assignment onto the cloud, I will be using Lambda for the Python scripts and these scripts will be triggered with EventBridge upon someone modifying the List of Restaurants file on the S3 bucket. Once Lambda is triggered, it will run and store the csv output files in the same bucket but with a different key path. From there, we can use RedShift for our data lakehouse to create tables and views for further analysis that can be used to build dashboards on PowerBI for example. These AWS services will be monitored with CloudWatch.
 <br><br>
 These Lambda functions could be deployed using Docker and hosted on AWS ECR. It will be fully CI/CD with GitHub actions workflow to automate deployment, testing and building of code. Adding linting and integration tests to the GitHub Actions workflow is a good practice to ensure code quality and functionality before deploying the Lambda functions.
+
+![Architecture Diagram](architecture.drawio.png)
