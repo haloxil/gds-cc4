@@ -3,6 +3,7 @@ main.py
 """
 import json
 import urllib.request
+import pandas as pd
 
 def main():
     URL = (
@@ -15,4 +16,6 @@ def main():
     with open('restaurant.json', 'r', encoding='utf-8') as f:
         metadata = json.load(f)
 
-    return data, metadata
+    df = pd.json_normalize(data, ['restaurants'])
+
+    return df, metadata

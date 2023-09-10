@@ -7,9 +7,8 @@ import numpy as np
 import main 
 
 
-data, metadata = main.main()
+df_restaurants, metadata = main.main()
 
-df_restaurants = pd.json_normalize(data, ['restaurants'])
 df_events = df_restaurants[[metadata['restaurant_id'], metadata['restaurant_name'], 
                             metadata['photo_url'], 'restaurant.zomato_events']]
 df_events = df_events.dropna(subset=['restaurant.zomato_events'])

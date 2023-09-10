@@ -5,9 +5,8 @@ import pandas as pd
 import main 
 
 
-data, metadata = main.main()
+df_threshold, metadata = main.main()
 
-df_threshold = pd.json_normalize(data, ['restaurants'])
 selected_cols = [metadata['user_text_rating'], metadata['user_aggregate_rating']]
 df_threshold  = df_threshold [selected_cols]
 
