@@ -2,8 +2,8 @@
 This module extracts selected fields and store the data as restaurants.csv.
 """
 import pandas as pd
-import numpy as np
 import main
+from utils import populate_empty_values
 
 df_restaurants, metadata = main.main()
 country_codes_df = pd.read_excel('Country-Code.xlsx')
@@ -16,18 +16,18 @@ user_rating_votes = metadata['user_rating_votes']
 user_aggregate_rating = metadata['user_aggregate_rating']
 cuisines = metadata['cuisines']
 
-selected_cols = [restaurant_id, restaurant_name, country, city, 
+selected_cols = [restaurant_id, restaurant_name, country, city,
                  user_rating_votes, user_aggregate_rating, cuisines]
 df_restaurants = df_restaurants[selected_cols]
 
 df_restaurants = pd.merge(df_restaurants, country_codes_df, left_on=country,
-              right_on='Country Code', how='left')
+                          right_on='Country Code', how='left')
+
 df_restaurants = df_restaurants.drop(columns={
     country,
     'Country Code'
 })
-df_restaurants = df_restaurants.replace(r'^\s*$', np.nan, regex=True)
-df_restaurants = df_restaurants.fillna('NA')
+df_restaurants = populate_empty_values(df_restaurants)
 
 df_restaurants = df_restaurants.rename(columns={
     restaurant_id: 'Restaurant Id',
