@@ -3,9 +3,12 @@ This module extracts selected fields and store the data as restaurants.csv.
 """
 import pandas as pd
 import main
+import awswrangler as wr
 from utils import populate_empty_values
 
 df_restaurants, metadata = main.main()
+# Uncomment if you want to read from s3 instead
+# country_codes_df = wr.s3.read_excel('s3://govtech-cc4/files/Country-Code.xlsx') 
 country_codes_df = pd.read_excel('Country-Code.xlsx')
 
 restaurant_id = metadata['restaurant_id']
