@@ -3,8 +3,17 @@
     "restaurant_name": "restaurant.name",
     "country": "restaurant.location.country_id",
     "city": "restaurant.location.city",
+    "photo_url": "restaurant.photos_url",
     "user_rating_votes": "restaurant.user_rating.votes",
     "user_aggregate_rating": "restaurant.user_rating.aggregate_rating",
-    "cuisines": "restaurant.cuisines"
+    "user_text_rating": "restaurant.user_rating.rating_text",
+    "cuisines": "restaurant.cuisines",
+    "event_id": "event.event_id",
+    "event_title": "event.title",
+    "event_start_date": "event.start_date",
+    "event_end_date": "event.end_date",
+    "rules": {
+        "text_rating": ["Excellent", "Very Good", "Good", "Average", "Poor"]
+    }
 }
 
