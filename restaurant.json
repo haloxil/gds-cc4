@@ -8,10 +8,13 @@
     "user_aggregate_rating": "restaurant.user_rating.aggregate_rating",
     "user_text_rating": "restaurant.user_rating.rating_text",
     "cuisines": "restaurant.cuisines",
-    "event_id": "event.event_id",
-    "event_title": "event.title",
-    "event_start_date": "event.start_date",
-    "event_end_date": "event.end_date",
+    "events": {
+        "key": "restaurant.zomato_events",
+        "event_id": "event.event_id",
+        "event_title": "event.title",
+        "event_start_date": "event.start_date",
+        "event_end_date": "event.end_date" 
+    },
     "rules": {
         "date": [2019, 4, 1],
         "text_rating": ["Excellent", "Very Good", "Good", "Average", "Poor"]
