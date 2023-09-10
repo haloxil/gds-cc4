@@ -1,15 +1,15 @@
 ## Instructions
 
 1) To get started, clone this repository to your local machine:
-   https://github.com/haloxil/gds-cc4.git
+   <br> git clone https://github.com/haloxil/gds-cc4.git
 2) Install the required Python packages using pip:
-   pip install -r requirements.txt
-3) Run the 1st task
-   python src/restaurants.py
-4) Run the 2nd task
-   python src/restaurant_events.py
-5) Run the 3rd task
-   python src/threshold.py
+   <br> pip install -r requirements.txt
+3) Run the 1st task:
+   <br> python src/restaurants.py
+4) Run the 2nd task:
+   <br> python src/restaurant_events.py
+5) Run the 3rd task:
+   <br> python src/threshold.py
 6) View all csv outputs on the root folder
 
 ## Assumptions and Interpretations
