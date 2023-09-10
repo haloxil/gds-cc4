@@ -3,6 +3,7 @@ This module extracts selected fields and store the data as restaurant_events.csv
 """
 import pandas as pd
 from datetime import datetime, date, timedelta
+import numpy as np
 import main 
 
 
@@ -26,6 +27,9 @@ df_events = df_events[(df_events['Event Start Date']
         <= datetime.combine(date(2019, 5, 1), datetime.min.time()) - timedelta(days=1)) 
         & (df_events['Event End Date'] 
         >= datetime.combine(date(2019, 4, 1), datetime.min.time()))]
+
+df_events = df_events.replace(r'^\s*$', np.nan, regex=True)
+df_events = df_events.fillna('NA')
 
 df_events = df_events.rename(columns={
     metadata['restaurant_id']: 'Restaurant Id',
