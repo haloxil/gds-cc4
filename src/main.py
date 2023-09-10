@@ -4,19 +4,22 @@ main.py
 import json
 import urllib.request
 import pandas as pd
-import boto3
+# import boto3
 
 def main():
-    URL = (
+    """
+    Configures df and metadata
+    """
+    url = (
         "https://raw.githubusercontent.com/"
         "Papagoat/brain-assessment/main/restaurant_data.json"
     )
-    with urllib.request.urlopen(URL) as response:
+    with urllib.request.urlopen(url) as response:
         data = json.load(response)
 
-    with open('restaurant_metadata.json', 'r', encoding='utf-8') as f:
-        metadata = json.load(f)
-    
+    with open('restaurant_metadata.json', 'r', encoding='utf-8') as file:
+        metadata = json.load(file)
+
     # This method uses s3 to retrieve the files
     '''
     s3_client = boto3.client('s3')
@@ -28,6 +31,6 @@ def main():
     metadata = json.loads(metadata_response['Body'].read().decode('utf-8'))
     '''
 
-    df = pd.json_normalize(data, ['restaurants'])
+    main_df = pd.json_normalize(data, ['restaurants'])
 
-    return df, metadata
+    return main_df, metadata
