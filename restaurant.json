@@ -13,6 +13,7 @@
     "event_start_date": "event.start_date",
     "event_end_date": "event.end_date",
     "rules": {
+        "date": [2019, 4, 1],
         "text_rating": ["Excellent", "Very Good", "Good", "Average", "Poor"]
     }
 }

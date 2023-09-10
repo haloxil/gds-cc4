@@ -9,6 +9,10 @@ import main
 
 df_restaurants, metadata = main.main()
 
+year = metadata['rules']['date'][0]
+month = metadata['rules']['date'][1]
+day = metadata['rules']['date'][2]
+
 df_events = df_restaurants[[metadata['restaurant_id'], metadata['restaurant_name'], 
                             metadata['photo_url'], 'restaurant.zomato_events']]
 df_events = df_events.dropna(subset=['restaurant.zomato_events'])
@@ -23,9 +27,9 @@ df_events['Event Start Date'] = pd.to_datetime(df_events['Event Start Date'])
 df_events['Event End Date'] = pd.to_datetime(df_events['Event End Date'])
 
 df_events = df_events[(df_events['Event Start Date'] 
-        <= datetime.combine(date(2019, 5, 1), datetime.min.time()) - timedelta(days=1)) 
+        <= datetime.combine(date(year, month + 1, day), datetime.min.time()) - timedelta(days=1)) 
         & (df_events['Event End Date'] 
-        >= datetime.combine(date(2019, 4, 1), datetime.min.time()))]
+        >= datetime.combine(date(year, month, day), datetime.min.time()))]
 
 df_events = df_events.replace(r'^\s*$', np.nan, regex=True)
 df_events = df_events.fillna('NA')
